@@ -37,6 +37,12 @@ admin.get('/article-edit', require('./admin/article-edit'));
 
 // 实现文章添加功能的路由
 admin.post('/article-add', require('./admin/article-add'))
+
+//实现文章删除功能路由
+admin.get('/article-delete', require('./admin/article-delete'))
+
+//实现文章修改功能
+admin.post('/article-modify',require('./admin/article-modify'))
 // admin.get('/article',((req, res) =>
 //         res.render('admin/article')
 // ));
