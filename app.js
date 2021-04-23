@@ -12,6 +12,8 @@ const session=require('express-session');
 const dateFormat = require('dateformat');
 // 导入morgan这个第三方模块
 const morgan = require('morgan');
+// 导入config模块
+const config = require('config');
 //创建网站服务器
 const app = express();
 
@@ -21,8 +23,14 @@ const app = express();
 
 
 app.use(bodyPaser.urlencoded({extended:false}));
-//配置session
-app.use(session({secret:'secret key'}));
+// 配置session
+app.use(session({
+ secret: 'secret key',
+ saveUninitialized: false,
+ cookie: {
+  maxAge: 24 * 60 * 60 * 1000
+ }
+}));
 // 告诉express框架模板所在的位置
 app.set('views', path.join(__dirname, 'views'));
 // 告诉express框架模板的默认后缀是什么
@@ -36,6 +44,7 @@ template.defaults.imports.dateFormat = dateFormat;
 //开放静态资源文件
 app.use(express.static(path.join(__dirname,'public')))
 
+console.log(config.get('title'))
 // console.log(process.env.NODE_ENV);
 // 获取系统环境变量 返回值是对象
 if (process.env.NODE_ENV === 'development') {

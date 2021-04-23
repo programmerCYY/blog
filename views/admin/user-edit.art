@@ -8,8 +8,8 @@
         <div class="main">
             <!-- 分类标题 -->
             <div class="title">
-                <h4>用户管理</h4>
-                <p class="tips">错误信息：{{message}}</p>
+                <h4 style="display: {{button == '修改' ? 'block' : 'none'}}">{{@user && user._id}}</h4>
+                <p class="tips" style="display: {{message != null ? 'block' : 'none'}}">错误信息：{{message}}</p>
             </div>
             <!-- /分类标题 -->
             <form class="form-container" action='{{link}}' method="post">

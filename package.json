@@ -2,9 +2,10 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node app.js "
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "mongoose": "^5.12.2",
     "mongoose-sex-page": "^1.2.4",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "config": "^3.3.6"
   }
 }
